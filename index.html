@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfólio de Rebecca Campos: projetos de inteligência artificial, dados, estratégia de negócios e automação.">
+<title>Rebecca Campos Portfólio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<style>
+/* Layout: hero with positioning and index, two flagship long-form cases, then secondary cases; meta rail on the left of each case */
+:root{
+  --bg:#f7f7f5; --surface:#ffffff; --fg:#16181d; --muted:#5a606b; --line:#e0e1e3;
+  --accent:#d6293e; --accent-soft:#fbe6e9; --chip:#eceef1; --todo:#8a5a00; --todo-bg:#fff4d6;
+  --ok:#1d6b46; --ok-bg:#e1f3ea; --exp:#2a4f9c; --exp-bg:#e4ebfa; --con:#6b4a9a; --con-bg:#eee6f8;
+  --f-display:'Space Grotesk','Helvetica Neue',Arial,sans-serif;
+  --f-body:'Inter',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111317; --surface:#1a1d23; --fg:#eceef2; --muted:#9aa1ad; --line:#2a2e36;
+  --accent:#ff5468; --accent-soft:#2c1a1e; --chip:#252932; --todo:#f0c35a; --todo-bg:#2e2710;
+  --ok:#6fd1a0; --ok-bg:#16291f; --exp:#8fb0ff; --exp-bg:#1a2338; --con:#c6a6f0; --con-bg:#271d38; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111317; --surface:#1a1d23; --fg:#eceef2; --muted:#9aa1ad; --line:#2a2e36;
+  --accent:#ff5468; --accent-soft:#2c1a1e; --chip:#252932; --todo:#f0c35a; --todo-bg:#2e2710;
+  --ok:#6fd1a0; --ok-bg:#16291f; --exp:#8fb0ff; --exp-bg:#1a2338; --con:#c6a6f0; --con-bg:#271d38; color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px));padding-block:0}
+.wrap{max-width:1000px;margin:0 auto}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.15;text-wrap:balance;margin:0}
+header.hero{padding-block:56px 36px;border-bottom:1px solid var(--line)}
+.kicker{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 14px}
+h1{font-size:clamp(2.4rem,7vw,4rem);font-weight:700;letter-spacing:-.02em}
+.role{font-family:var(--f-display);font-size:clamp(1.1rem,3vw,1.4rem);margin:12px 0 0;font-weight:500}
+.lead{font-size:1.1rem;max-width:68ch;margin:20px 0 0}
+.axes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:28px 0 0}
+.axes div{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:14px 16px;min-width:0}
+.axes b{display:block;font-family:var(--f-display);margin-bottom:4px}
+.axes span{font-size:14px;color:var(--muted)}
+.contact{display:flex;flex-wrap:wrap;gap:8px 24px;margin:24px 0 0;padding:0;list-style:none;font-size:14px;color:var(--muted)}
+.contact b{color:var(--fg);font-weight:600}
+.contact span{overflow-wrap:anywhere}
+.index{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 0;padding:0;list-style:none}
+.index a{display:block;border:1px solid var(--line);border-radius:6px;padding:4px 12px;font-size:14px;text-decoration:none;color:var(--fg);background:var(--surface)}
+.index a:hover{border-color:var(--accent);color:var(--accent)}
+section{padding-block:44px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:1.7rem;font-weight:600;margin-bottom:8px}
+.sub{color:var(--muted);max-width:68ch;margin:0 0 28px}
+.cat{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 4px}
+.stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.stack h3{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 4px;padding:0;list-style:none}
+.chips li{background:var(--chip);border-radius:6px;padding:3px 9px;font-size:13px}
+.case{display:grid;grid-template-columns:210px minmax(0,1fr);gap:8px 36px;padding-block:34px;border-top:1px solid var(--line)}
+.case:first-of-type{border-top:0;padding-top:0}
+.meta{font-size:13px;color:var(--muted);min-width:0}
+.meta strong{display:block;color:var(--fg);font-family:var(--f-display);font-size:1rem;margin-bottom:4px}
+.meta p{margin:0 0 8px}
+.badge{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:12px;border-radius:6px;padding:2px 8px;margin-bottom:8px}
+.case h3{font-size:1.45rem;margin-bottom:6px}
+.tag{font-size:15px;color:var(--muted);margin:0 0 6px;max-width:68ch}
+.lbl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--accent);margin:22px 0 4px}
+.case p,.case ul.list,.case ol.list{max-width:70ch}
+.case p{margin:0 0 10px}
+.case ul.list,.case ol.list{margin:0 0 10px;padding-left:20px}
+.case ul.list li,.case ol.list li{margin-bottom:5px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px;padding:0;list-style:none}
+.flow li{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:13px;min-width:0;flex:1 1 140px}
+.flow li b{display:block;font-family:var(--f-display);font-size:13px;margin-bottom:2px}
+.metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:8px 0 12px}
+.metrics div{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:12px 14px;min-width:0}
+.metrics b{display:block;font-family:var(--f-display);font-size:1.5rem;color:var(--accent);font-variant-numeric:tabular-nums}
+.metrics span{font-size:13px;color:var(--muted)}
+.todo{background:var(--todo-bg);color:var(--todo);border:1px dashed var(--todo);border-radius:6px;padding:8px 12px;font-size:13px;margin:8px 0;max-width:70ch}
+.scope{background:var(--accent-soft);border-radius:8px;padding:12px 16px;font-size:14px;max-width:70ch;margin:12px 0}
+.limits{border-left:3px solid var(--line);padding:2px 0 2px 14px;margin:8px 0 12px;max-width:70ch;font-size:14px;color:var(--muted)}
+.limits p{margin:0 0 6px}
+.fronts{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:8px 0 12px}
+.front{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 16px;min-width:0;font-size:14px}
+.front h4{font-family:var(--f-display);font-size:.98rem;margin:0 0 6px}
+.front p{margin:0 0 8px;max-width:none}
+.front .res{color:var(--muted)}
+.st{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border-radius:5px;padding:2px 7px;margin-bottom:8px}
+.st.ok{background:var(--ok-bg);color:var(--ok)}
+.st.exp{background:var(--exp-bg);color:var(--exp)}
+.st.con{background:var(--con-bg);color:var(--con)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;color:var(--muted);margin:0 0 8px}
+footer{padding-block:32px 48px;color:var(--muted);font-size:14px}
+@media (max-width:680px){
+  .case{grid-template-columns:minmax(0,1fr)}
+  header.hero{padding-block:36px 28px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <p class="kicker">Portfólio · Candidatura AI Builder · Residência Corporativa iFood</p>
+  <h1>Rebecca Campos</h1>
+  <p class="role">Inteligência Artificial · Dados · Estratégia de Negócios · Automação</p>
+  <p class="lead">Cientista de Dados e IA formada pela PUC-SP. Parto do problema de negócio, estruturo os indicadores e os dados, construo a automação ou o agente de IA que resolve o problema e traduzo o resultado em decisão. Meus projetos vão da inteligência de dados ESG em uma empresa do setor sucroenergético a um sistema multiagente de IA para recrutamento, baseado em pesquisa empírica.</p>
+  <div class="axes">
+    <div><b>Inteligência de dados e BI</b><span>Indicadores, dashboards, tratamento de dados com Python e Power Query</span></div>
+    <div><b>IA aplicada a problemas reais</b><span>Agentes com LLMs, Machine Learning, APIs de modelos</span></div>
+    <div><b>Negócios e pesquisa</b><span>Oportunidades de mercado, pesquisa com usuários, análise estatística</span></div>
+    <div><b>Automação de processos</b><span>Atualização automática, alertas, low-code, CI/CD</span></div>
+  </div>
+  <ul class="contact">
+    <li><b>Local</b> São Paulo, SP</li>
+    <li><b>E-mail</b> <span>rebeccamachadocampos@gmail.com</span></li>
+    <li><b>LinkedIn</b> Rebecca Campos</li>
+    <li><b>GitHub</b> <a href="https://github.com/becamparezzo" target="_blank" rel="noopener">github.com/becamparezzo</a></li>
+  </ul>
+  <ul class="index" aria-label="Índice">
+    <li><a href="#zilor-esg">Zilor ESG</a></li>
+    <li><a href="#ats">ATS Optimizer (TCC)</a></li>
+    <li><a href="#kaizen">Kaizen Marketing</a></li>
+    <li><a href="#flex">Wearables para idosos</a></li>
+    <li><a href="#hackathon">Hackathon PUC-SP</a></li>
+    <li><a href="#api">Santorini API</a></li>
+    <li><a href="#stack">Stack</a></li>
+  </ul>
+</header>
+
+<section id="destaques" aria-labelledby="h-dest">
+  <p class="cat">Parte 1</p>
+  <h2 id="h-dest">Projetos em destaque</h2>
+  <p class="sub">Os dois projetos que melhor mostram como conecto dados, IA, automação e visão de negócio.</p>
+
+  <article class="case" id="zilor-esg">
+    <div class="meta">
+      <span class="badge">Projeto principal</span>
+      <strong>Zilor</strong>
+      <p>Empresa do setor sucroenergético<br>Planejamento Estratégico, Performance e BI<br>2024 · Comissão ESG</p>
+      <p>Código e dados confidenciais.</p>
+    </div>
+    <div>
+      <h3>ESG Data Intelligence &amp; Automation</h3>
+      <p class="tag">Estruturação de indicadores e automação do monitoramento ESG para apoiar decisões estratégicas.</p>
+
+      <p class="lbl">Contexto e problema</p>
+      <p>A Zilor tinha mais de 200 indicadores ESG e operacionais espalhados em fontes e áreas diferentes. Era difícil organizá-los, atualizá-los e entender quais eram relevantes para a estratégia da empresa.</p>
+
+      <p class="lbl">Objetivo</p>
+      <p>Centralizar e estruturar os indicadores, automatizar a atualização e o monitoramento e dar à Comissão ESG e à gestão uma leitura confiável para decidir.</p>
+
+      <p class="lbl">Minha atuação</p>
+      <ul class="list">
+        <li><strong>Levantamento:</strong> conversei com as áreas para entender necessidades, dificuldades e informações disponíveis.</li>
+        <li><strong>Definição dos indicadores:</strong> trabalhei com a Comissão ESG para identificar e definir os indicadores relevantes.</li>
+        <li><strong>Tratamento de dados:</strong> preparei e tratei os dados com Python e Power Query.</li>
+        <li><strong>Dashboard executivo:</strong> desenvolvi o painel em Power BI em conjunto com outra pessoa, com páginas e responsabilidades divididas. Fiquei com todas as páginas, exceto a de certificações e as versões da Biorigin, outra empresa da Zilor. O painel reúne os resultados das duas empresas, separados por aba em cada tema. Em Ambiental, por exemplo, uma aba mostra a Zilor e outra a Biorigin.</li>
+        <li><strong>Automação (responsabilidade minha):</strong> estruturei, com ferramentas low-code, integrações com APIs e bases de dados e comunicação por e-mail, a atualização automática dos painéis e os alertas para indicadores fora da faixa de normalidade.</li>
+      </ul>
+
+      <p class="lbl">Metodologia</p>
+      <p>Primeiro mapeei o que existia, com quem e em que formato. Depois, com a Comissão, defini quais indicadores importavam. Só então estruturei as bases, o painel e a automação, para que a tecnologia seguisse o que a estratégia precisava acompanhar.</p>
+
+      <p class="lbl">Arquitetura e fluxo de dados</p>
+      <ol class="flow">
+        <li><b>Fontes</b>API de uma consultoria parceira com dados operacionais e bases internas em Excel, SharePoint e SQL</li>
+        <li><b>Preparação</b>Python e Power Query</li>
+        <li><b>Atualização automática</b>Ferramentas low-code (Power Apps)</li>
+        <li><b>Power BI</b>Dashboard executivo</li>
+        <li><b>Alertas</b>E-mail quando o indicador sai da faixa de normalidade</li>
+      </ol>
+      <ul class="chips"><li>Python</li><li>Power Query</li><li>Power BI</li><li>Power Apps / low-code</li><li>APIs</li><li>Bases de dados</li><li>Integração com e-mail</li></ul>
+
+      <p class="lbl">Funcionamento</p>
+      <p>As informações das diferentes fontes eram tratadas e as bases e os painéis eram atualizados automaticamente, sem que cada equipe precisasse atualizar à mão. Quando um indicador saía da faixa de normalidade definida, um alerta por e-mail avisava para que o desvio fosse investigado. A faixa de normalidade de cada indicador foi definida a partir de regras de negócio e do histórico, sempre em conversa com as áreas responsáveis. A consultoria que prestava serviço à empresa já detinha dados operacionais e disponibilizou uma API, o que evitou pedir os mesmos dados às áreas de novo. As bases internas completavam o conjunto.</p>
+      
+
+      <p class="lbl">Resultados e impacto</p>
+      <div class="metrics">
+        <div><b>200+</b><span>indicadores ESG e operacionais no escopo do projeto</span></div>
+      </div>
+      <ul class="list">
+        <li>Processo de atualização manual substituído por atualização automática dos painéis.</li>
+        <li>Alertas que direcionam a atenção para os indicadores fora do normal, em vez de exigir a revisão de todos.</li>
+      </ul>
+      <div class="scope"><strong>Resultados estratégicos da Comissão ESG.</strong> O trabalho de dados apoiou iniciativas mais amplas da Comissão, que levaram a dois resultados. Não atribuo a receita nem a redução de custo ao dashboard ou à automação isoladamente.
+        <ul class="list" style="margin:8px 0 0">
+          <li><strong>Mercado de CBIOs:</strong> oportunidade de entrada identificada, que representou cerca de 3% da receita anual após o primeiro ano.</li>
+          <li><strong>Biochar:</strong> estudo interno de viabilidade com potencial de custo total cerca de 40% menor que o da aquisição externa.</li>
+        </ul>
+      </div>
+
+      <p class="lbl">Competências demonstradas</p>
+      <ul class="chips"><li>Estruturação de indicadores</li><li>Levantamento com áreas de negócio</li><li>Automação low-code</li><li>Integração de APIs e bases</li><li>BI executivo</li><li>Trabalho com comissão estratégica</li></ul>
+    </div>
+  </article>
+
+  <article class="case" id="ats">
+    <div class="meta">
+      <span class="badge">Projeto principal</span>
+      <strong>ATS Optimizer</strong>
+      <p>TCC · Ciência de Dados e IA, PUC-SP<br>2026<br>Orientador: David de Oliveira Lemes</p>
+      <p>Grupo de 3 pessoas.</p>
+      <p>Código: <a href="https://github.com/julianamiranda1/ats-optimizer" target="_blank" rel="noopener">github.com/julianamiranda1/ats-optimizer</a></p>
+    </div>
+    <div>
+      <h3>IA multiagente para triagem e otimização de currículos, baseada em pesquisa empírica</h3>
+      <p class="tag">TCC: "A Desumanização nos Processos Seletivos Digitais e Seus Impactos na Eficiência do Recrutamento".</p>
+
+      <p class="lbl">Contexto e problema</p>
+      <p>Sistemas ATS podem eliminar candidatos qualificados porque o currículo não usa as palavras-chave que o recrutador configurou, mesmo quando a competência existe. O candidato recebe pouca ou nenhuma explicação. Antes de construir qualquer solução, investigamos se isso se confirmava na prática.</p>
+
+      <p class="lbl">Pesquisa empírica (monografia)</p>
+      <p>Coleta de 29/04 a 28/05/2026, com questionários no Google Forms, abordagem quantitativa e qualitativa e amostragem por conveniência. Análise quantitativa com Python, estatística descritiva e Matplotlib. Análise qualitativa por análise temática de conteúdo, com referência a Bardin, com nuvem de palavras.</p>
+      <div class="metrics">
+        <div><b>51</b><span>respondentes: 47 candidatos e 4 recrutadores</span></div>
+        <div><b>78,7%</b><span>dos candidatos já foram eliminados achando que atendiam a pelo menos 90% dos requisitos técnicos</span></div>
+        <div><b>97,9%</b><span>receberam feedback vago, genérico ou inexistente após uma reprovação</span></div>
+        <div><b>87,2%</b><span>relataram desmotivação após processos seletivos digitais</span></div>
+        <div><b>2,3 / 5</b><span>nota média para a fidelidade dos filtros automáticos às competências reais</span></div>
+      </div>
+      <div class="limits"><p>Amostra por conveniência. A amostra de recrutadores é pequena (4 pessoas), então a afirmação de que 75% deles não têm tempo de revisar candidatos reprovados pelos filtros (3 de 4) é apenas indicativa.</p></div>
+
+      <p class="lbl">Objetivo</p>
+      <p>Transformar as evidências da pesquisa em uma ferramenta que mostra ao candidato quanto o currículo combina com a vaga e o que fazer a respeito, sem inventar experiências.</p>
+
+      <p class="lbl">Minha atuação</p>
+      <ul class="list"><li><strong>Pesquisa (individual):</strong> elaborei os questionários no Google Forms e conduzi toda a análise dos dados da pesquisa em Python, com estatística descritiva e visualizações.</li><li><strong>Agente de IA (em equipe):</strong> o sistema foi construído em conjunto pelos três integrantes do grupo. Todos participamos dos testes e das alterações no código.</li><li><strong>Fora da minha atuação:</strong> a redação da monografia.</li></ul>
+
+      <p class="lbl">Arquitetura</p>
+      <ol class="flow">
+        <li><b>Entrada</b>Currículo em PDF ou DOCX. Vaga em texto, arquivo ou URL</li>
+        <li><b>Extração de texto</b>PyPDF2 e python-docx</li>
+        <li><b>Curriculum Parser + Job Analyst</b>Texto livre vira JSON estruturado</li>
+        <li><b>Matching Scorer</b>Score de 0 a 100, palavras-chave presentes, ausentes e parciais, pontos fortes e de atenção</li>
+        <li><b>Career Interviewer</b>4 a 6 perguntas personalizadas ao candidato</li>
+        <li><b>Decisão pelo score</b>70 ou mais: CV Optimizer. Abaixo de 70: Gap Advisor</li>
+      </ol>
+      <ul class="chips"><li>Python</li><li>FastAPI e Uvicorn</li><li>Groq API</li><li>Llama 3.3 70B Versatile</li><li>LangChain e langchain-groq</li><li>CrewAI</li><li>Pydantic</li><li>PyPDF2</li><li>python-docx</li><li>HTML, CSS e JavaScript</li></ul>
+
+      <p class="lbl">Como funciona</p>
+      <ul class="list">
+        <li><strong>Extração e estruturação:</strong> o Curriculum Parser recebe o texto do currículo e devolve JSON com resumo, experiências, habilidades técnicas e comportamentais, formação, idiomas e certificações. O Job Analyst faz o mesmo com a vaga e devolve requisitos obrigatórios e desejáveis, palavras-chave de ATS, senioridade e modelo de trabalho. A estrutura de cada JSON é definida no prompt.</li>
+        <li><strong>Comparação e pontuação:</strong> o Matching Scorer recebe os dois JSONs e calcula o score segundo os pesos do prompt: 60% para requisitos obrigatórios, 25% para desejáveis e 15% para palavras-chave de ATS. O score é gerado pelo modelo de linguagem a partir dessas instruções.</li>
+        <li><strong>Regra de decisão:</strong> o código aplica uma regra determinística sobre o score. Com 70 ou mais, o fluxo segue para a otimização do currículo, o que evita recomendações inconsistentes do modelo. Abaixo de 70, segue para o plano de desenvolvimento.</li>
+        <li><strong>Personalização:</strong> o Career Interviewer gera perguntas sobre objetivos, o que o candidato quer desenvolver e o que não quer mais fazer. As respostas entram como contexto no próximo passo.</li>
+        <li><strong>CV Optimizer:</strong> reescreve o currículo com a mesma informação verdadeira e linguagem alinhada à vaga, e lista as palavras-chave que incorporou. Se as respostas de carreira não aparecem no resultado, o código executa uma segunda tentativa com instrução reforçada.</li>
+        <li><strong>Gap Advisor:</strong> para cada lacuna, indica urgência, nível atual, como desenvolver, recursos, tempo estimado e impacto no currículo, além da ordem recomendada.</li>
+      </ul>
+
+      <p class="lbl">Engenharia de prompt e controle de invenção</p>
+      <ul class="list">
+        <li>Cada agente tem um papel, um formato de saída (JSON ou texto) e instruções próprias. Temperatura 0,2 para respostas mais estáveis.</li>
+        <li>O Parser recebe a instrução de usar só o que está no texto. O Optimizer tem uma "regra absoluta": não inventar experiências, cargos, senioridade, tempo de atuação nem conquistas.</li>
+        <li>Objetivos de carreira ditos pelo candidato entram como aspiração ("busco oportunidades como...") e nunca como experiência passada.</li>
+        <li>Antes de escrever "com experiência em X", o modelo deve achar uma evidência de X no currículo. Sem evidência, usa "interesse em" ou omite.</li>
+      </ul>
+
+      <p class="lbl">Entregáveis</p>
+      <p>Aplicação web funcional (FastAPI com interface em HTML, CSS e JavaScript) que recebe currículo e vaga, mostra score, palavras-chave e pontos de atenção, faz perguntas de carreira e entrega o currículo otimizado ou o plano de desenvolvimento. O repositório também traz uma versão da mesma divisão de agentes e tarefas em CrewAI (crew.py).</p>
+
+      <p class="lbl">Limitações</p>
+      <div class="limits">
+        <p>O score vem do modelo de linguagem e não foi validado contra um padrão. Não o apresento como métrica estatística nem como acurácia.</p>
+        <p>A regra de não inventar é aplicada pelos prompts. Não há verificação automática das afirmações do currículo gerado.</p>
+        <p>Não há avaliação do sistema com usuários reais. Os resultados da pesquisa mostram o problema, e não o desempenho da ferramenta.</p>
+        <p>As sessões ficam em memória, o que serve a um protótipo acadêmico e não a uso em produção.</p>
+      </div>
+
+      <p class="lbl">Competências demonstradas</p>
+      <ul class="chips"><li>Pesquisa com usuários</li><li>Estatística descritiva</li><li>Análise qualitativa</li><li>Orquestração de agentes de IA</li><li>Engenharia de prompts</li><li>Extração de dados não estruturados</li><li>IA responsável (sem invenção de fatos)</li><li>API com FastAPI</li></ul>
+    </div>
+  </article>
+</section>
+
+<section id="outros" aria-labelledby="h-outros">
+  <p class="cat">Parte 2</p>
+  <h2 id="h-outros">Outros projetos</h2>
+  <p class="sub">Projetos corporativos, de consultoria acadêmica com empresa parceira, de hackathon e de engenharia.</p>
+
+  <article class="case" id="kaizen">
+    <div class="meta">
+      <strong>Zilor</strong>
+      <p>Kaizen · melhoria contínua<br>2025</p>
+      <p><span class="badge">1º lugar em iniciativa Kaizen, 2025</span></p>
+    </div>
+    <div>
+      <h3>Kaizen: Marketing Performance e feedback comercial</h3>
+      <p class="tag">Projeto independente do projeto ESG.</p>
+      <p class="lbl">Contexto e problema</p>
+      <p>Era preciso avaliar se os materiais que o Marketing produzia ajudavam o time Comercial a negociar e fechar vendas.</p>
+      <p class="lbl">Minha atuação</p>
+      <ul class="list">
+        <li>Estruturei um formulário de feedback no Microsoft Forms.</li>
+        <li>Desenvolvi um dashboard em Power BI para consolidar e analisar as respostas.</li>
+        <li>Analisei as percepções do Comercial e do Marketing.</li>
+        <li>Identifiquei materiais e modelos de proposta com menor efetividade.</li>
+      </ul>
+      <p class="lbl">Resultado</p>
+      <p>Identifiquei um possível gargalo no prazo de entrega: materiais disponibilizados mais tarde tendiam a ter menor retorno e efetividade. É uma hipótese para o time validar, sem medição de conversão. A pesquisa envolveu cerca de 10 pessoas do Comercial e entre 5 e 8 do Marketing (números aproximados). O projeto conquistou o 1º lugar em uma iniciativa Kaizen em 2025.</p>
+      <ul class="chips"><li>Microsoft Forms</li><li>Power BI</li><li>Análise de feedback</li><li>Melhoria contínua</li><li>Colaboração entre áreas</li></ul>
+    </div>
+  </article>
+
+  <article class="case" id="flex">
+    <div class="meta">
+      <strong>Flex Solutions</strong>
+      <p>Parceria acadêmica e profissional: projeto extensionista com empresa parceira<br>Atuação como consultora de novos negócios e IA<br>Consultoria Especializada em IA, 6º semestre, PUC-SP<br>2025</p>
+      <p>Grupo de 4 pessoas.</p>
+      <p>Código: <a href="https://github.com/becamparezzo/Projeto-Extensionista-Feito-Para-a-Empresa-Flex-Solutions" target="_blank" rel="noopener">github.com/becamparezzo/Projeto-Extensionista-Feito-Para-a-Empresa-Flex-Solutions</a></p>
+    </div>
+    <div>
+      <h3>Market Intelligence &amp; AI for Healthcare Wearables</h3>
+      <p class="tag">Estudo de mercado e IA aplicada ao monitoramento de saúde de idosos com wearables, como nova linha de negócio para uma empresa de tecnologia hospitalar.</p>
+
+      <p class="lbl">Contexto e problema de negócio</p>
+      <p>A Flex Solutions cuida de sistemas e tecnologias hospitalares e atende clínicas e hospitais. Ela buscava uma ideia escalável e rentável, seja dentro do que já fazia ou em algo novo. Wearables para o público fitness já existem no mercado, mas a Flex não operava esse serviço. O projeto reaproveitou apenas a operação tecnológica e a base de clientes da empresa.</p><p>Os estudos de mercado mostraram tendência de uso de wearables e uma necessidade maior deles entre públicos mais vulneráveis. A expectativa de vida aumenta, a natalidade cai e há cada vez mais idosos morando sozinhos. O Brasil ganhou mais de 9 milhões de idosos em 10 anos. A oportunidade identificada foi monitorar sinais vitais, detectar quedas e emergências e antecipar eventos críticos nesse público, atendido pelos clientes que a Flex já tinha.</p>
+
+      <p class="lbl">Minha atuação</p>
+      <ul class="list">
+        <li><strong>Individual:</strong> conduzi toda a pesquisa de mercado e a identificação da oportunidade de novo negócio, incluindo a análise de dados internos.</li>
+        <li><strong>Em equipe:</strong> todos os integrantes do grupo desenvolveram todas as etapas técnicas, de P1 a P8, com Machine Learning e otimização de rotas.</li>
+        <li><strong>Consenso:</strong> o grupo comparava os resultados das abordagens e discutia qual tinha tido melhor desempenho para chegar a uma escolha comum.</li>
+      </ul>
+      
+
+      <p class="lbl">Estrutura do projeto: oito frentes</p>
+      <p class="legend"><span><span class="st ok">Simulação</span> implementada com dados simulados ou simplificados</span><span><span class="st exp">Experimento</span> modelo treinado em base pública</span><span><span class="st con">Conceito</span> proposta ou protótipo conceitual</span></p>
+      <div class="fronts">
+        <div class="front"><span class="st ok">Simulação</span><h4>P1 · Despacho de ambulâncias</h4><p>Duas implementações em Python de busca Gulosa (Greedy Best-First) e A*, para achar a rota base, paciente e hospital. A primeira usa um grafo fictício em km, compara algoritmos e conta nós expandidos. A segunda usa coordenadas reais, heurística de Haversine e visualização em NetworkX.</p><p class="res">Resultado: comparação entre os algoritmos em cenário simulado. Não usa dados reais de trânsito.</p></div>
+        <div class="front"><span class="st ok">Simulação</span><h4>P2 · Risco cardíaco, estresse e diabetes</h4><p>Lógica fuzzy (scikit-fuzzy) com quatro regras sobre pressão, idade e glicose, aplicada a um paciente de exemplo. Em outro notebook, Random Forest para diabetes e SVM para estresse, com hiperparâmetros otimizados por algoritmo genético (DEAP).</p><p class="res">Resultado: com a otimização, diabetes foi de 99% para 100% de acurácia e estresse foi de 90% para 99%, com recall de 0,62 para 0,97 na classe estresse. São resultados de bases públicas, sem validação clínica.</p></div>
+        <div class="front"><span class="st exp">Experimento</span><h4>P3 · Reconhecimento de atividades</h4><p>Árvore de decisão no Orange sobre o dataset MHEALTH (10 voluntários, 12 atividades, sensores de aceleração, giroscópio e ECG).</p><p class="res">Resultado: 94,3% de acurácia no dataset público.</p></div>
+        <div class="front"><span class="st exp">Experimento</span><h4>P4 · Detecção de quedas</h4><p>SVM, k-NN e Regressão Logística com validação cruzada de 5 folds e regras CN2 no Orange, sobre o dataset cStick (2.039 registros, três classes).</p><p class="res">Resultado: 100% de acurácia nos três modelos e 99,8% no CN2. Esse valor mostra que as classes do dataset são muito separáveis. Não é evidência de desempenho em campo.</p></div>
+        <div class="front"><span class="st exp">Experimento</span><h4>P5 · Pontuações de questionários clínicos</h4><p>Regressão Linear, Random Forest e Gradient Boosting, com divisão 80/20 e pipeline de pré-processamento, para prever SIS, OHS e OKS a partir de dados de wearables e demográficos (MAISON-LLF).</p><p class="res">Resultado: R² entre 0,997 e 1,0. Valores tão altos pedem checagem de vazamento de dados antes de qualquer interpretação, e não os apresento como desempenho preditivo.</p></div>
+        <div class="front"><span class="st con">Conceito</span><h4>P6 · Bem-estar com PLN</h4><p>Protótipo com dados simulados. O spaCy classifica o sentimento das falas por léxico simples e um tensor PyTorch simula a distinção de voz do idoso. A média ponderada por dia gera uma nota de qualidade de vida de 0 a 10.</p><p class="res">Resultado: protótipo conceitual, sem dados reais.</p></div>
+        <div class="front"><span class="st exp">Experimento</span><h4>P7 · Atividade e inatividade com LSTM</h4><p>Rede LSTM (duas camadas, 64 e 32 unidades) sobre o HAR70+, com acelerômetros de 18 idosos de 70 a 95 anos. Janelas de 250 amostras (5 s) e classificação binária entre atividade normal e repouso.</p><p class="res">Resultado: 91,02% de acurácia em 22.594 janelas, com 5 épocas. A classe de risco usa "deitado" como proxy de inatividade.</p></div>
+        <div class="front"><span class="st con">Conceito</span><h4>P8 · Emergências cardíacas</h4><p>Análise de léxico de textos médicos com spaCy, para identificar termos de emergência cardíaca, e plano de ação para evoluir o sistema, com integração a dados de sensores.</p><p class="res">Resultado: plano e análise exploratória. Não é um sistema implementado.</p></div>
+      </div>
+
+      <div class="scope"><strong>Escopo:</strong> pesquisa de mercado, avaliação de viabilidade e prototipação com dados públicos e simulados. Não é um produto implementado nem validado clinicamente, e nenhuma das métricas acima vem de uso real.</div>
+
+      <p class="lbl">Tecnologias</p>
+      <ul class="chips"><li>Python</li><li>Pandas</li><li>NumPy</li><li>Scikit-learn</li><li>TensorFlow / Keras</li><li>PyTorch</li><li>NetworkX</li><li>spaCy</li><li>scikit-fuzzy</li><li>DEAP</li><li>Orange Data Mining</li><li>Matplotlib e Seaborn</li></ul>
+      
+      
+
+      <p class="lbl">Competências demonstradas</p>
+      <ul class="chips"><li>Pesquisa de mercado</li><li>Avaliação de viabilidade</li><li>Machine Learning e deep learning</li><li>Algoritmos de busca e otimização</li><li>Leitura crítica de métricas</li><li>Comunicação técnica</li></ul>
+    </div>
+  </article>
+
+  <article class="case" id="hackathon">
+    <div class="meta">
+      <span class="badge">1º lugar</span>
+      <strong>Hackathon PUC-SP</strong>
+      <p>IA e ODS da ONU<br>2024<br>Trabalho em equipe</p>
+    </div>
+    <div>
+      <h3>IA para relacionar teses e dissertações aos Objetivos de Desenvolvimento Sustentável</h3>
+      <p class="lbl">Contexto e problema</p>
+      <p>A universidade tem muitas teses e dissertações, e era difícil saber quais temas e quais ODS as pesquisas cobrem.</p>
+      <p class="lbl">Solução da equipe</p>
+      <p>Uma solução baseada em IA que analisa teses e dissertações e identifica a relação de cada trabalho com os ODS da ONU. Os resultados ficam estruturados para análise em dashboard.</p>
+      <p class="lbl">Minha atuação</p>
+      <ul class="list">
+        <li>Desenvolvi o dashboard em Power BI.</li>
+        <li>Conduzi as análises dos dados estruturados pelo projeto, transformando a saída da IA em padrões visíveis sobre como a produção acadêmica se alinha aos ODS.</li>
+      </ul>
+      
+      <p class="lbl">Resultado</p>
+      <p>1º lugar no hackathon da PUC-SP em 2024.</p>
+      <ul class="chips"><li>Power BI</li><li>Análise de dados</li><li>Visualização</li><li>Trabalho em equipe</li></ul>
+    </div>
+  </article>
+
+  <article class="case" id="api">
+    <div class="meta">
+      <strong>Santorini API</strong>
+      <p>Disciplina de Ciência de Dados 2 (CDIA)<br>2026</p>
+      <p>Repositório individual: <a href="https://github.com/becamparezzo/Aula-01---CDIA-7" target="_blank" rel="noopener">github.com/becamparezzo/Aula-01---CDIA-7</a></p>
+    </div>
+    <div>
+      <h3>API de restaurante com pipeline de ML, testes automatizados e CI/CD</h3>
+      <p class="tag">Projeto de engenharia: API REST, modelo de churn publicado em um registry, testes e entrega automatizada.</p>
+
+      <p class="lbl">Contexto e objetivo</p>
+      <p>Construir, de ponta a ponta, uma API de restaurante e integrar a ela um modelo de Machine Learning que prevê churn, com as práticas de MLOps: modelo versionado fora da aplicação, testes automáticos e pipeline de entrega.</p>
+
+      <p class="lbl">Minha atuação</p>
+      <p>Desenvolvi o projeto sozinha, e todos os commits do repositório são meus. Ele foi feito dentro de uma disciplina.</p>
+
+      <p class="lbl">Arquitetura e fluxo</p>
+      <ol class="flow">
+        <li><b>Dados</b>gerar_dados.py: 2.000 clientes sintéticos, 5 variáveis</li>
+        <li><b>Treino</b>Random Forest com 100 árvores, divisão 80/20</li>
+        <li><b>Registry</b>Modelo publicado no Hugging Face Hub</li>
+        <li><b>API</b>FastAPI baixa o modelo e expõe POST /predict/</li>
+        <li><b>Entrega</b>Docker, Docker Compose com Nginx e GitHub Actions</li>
+      </ol>
+      <ul class="list">
+        <li><strong>API do restaurante:</strong> rotas de pratos, bebidas, pedidos e reservas, organizadas em routers, com modelos Pydantic de entrada e saída. O cardápio de exemplo fica em memória.</li>
+        <li><strong>Predição de churn:</strong> o endpoint recebe dias sem login, chamados abertos, mensalidade, meses de contrato e NPS, com validação Pydantic, e devolve se há risco de churn, a probabilidade e uma mensagem.</li>
+        <li><strong>Testes:</strong> 27 testes com pytest, sendo 23 da API e 4 de integração do modelo.</li>
+        <li><strong>CI/CD em GitHub Actions, em três etapas em sequência:</strong> testes rápidos da API, testes de integração que baixam o modelo do Hugging Face Hub com um secret, e build e push da imagem Docker para o Docker Hub.</li>
+        <li><strong>Container:</strong> Dockerfile com usuário sem privilégios e Docker Compose com Nginx como proxy reverso.</li>
+      </ul>
+      <ul class="chips"><li>Python</li><li>FastAPI</li><li>Pydantic</li><li>scikit-learn</li><li>joblib</li><li>Hugging Face Hub</li><li>pytest</li><li>GitHub Actions</li><li>Docker</li><li>Nginx</li></ul>
+
+      <p class="lbl">Limitações</p>
+      <div class="limits">
+        <p>O dataset é sintético e gerado com regras que separam as classes, então a acurácia de 100% no teste não mede desempenho real.</p>
+        <p>As variáveis lembram um serviço por assinatura (login, chamados, mensalidade, NPS), e não o consumo de um restaurante. O foco do projeto é o pipeline de engenharia, e não um modelo de churn para um negócio real.</p>
+      </div>
+
+      <p class="lbl">Competências demonstradas</p>
+      <ul class="chips"><li>Desenvolvimento de APIs</li><li>MLOps básico</li><li>Testes automatizados</li><li>CI/CD</li><li>Containerização</li><li>Versionamento de modelo</li></ul>
+    </div>
+  </article>
+</section>
+
+<section id="stack" aria-labelledby="h-stack">
+  <h2 id="h-stack">Stack e competências</h2>
+  <div class="stack">
+    <div><h3>IA e automação</h3><ul class="chips"><li>Agentes de IA</li><li>Sistemas multiagente</li><li>CrewAI</li><li>LangChain</li><li>LLMs via Groq (Llama 3.3 70B)</li><li>Engenharia de prompts</li><li>Power Apps / low-code</li><li>Integração de APIs</li></ul></div>
+    <div><h3>Código e engenharia</h3><ul class="chips"><li>Python</li><li>pandas</li><li>SQL</li><li>FastAPI</li><li>Pydantic</li><li>pytest</li><li>GitHub Actions</li><li>Docker</li></ul></div>
+    <div><h3>Machine Learning</h3><ul class="chips"><li>Scikit-learn</li><li>Random Forest e Gradient Boosting</li><li>SVM e k-NN</li><li>LSTM (Keras)</li><li>Lógica fuzzy</li><li>Algoritmos genéticos</li><li>Estatística aplicada</li></ul></div>
+    <div><h3>BI e dados</h3><ul class="chips"><li>Power BI</li><li>DAX</li><li>Power Query</li><li>Amazon QuickSight</li><li>Excel e Google Sheets avançados</li><li>AWS</li><li>Google Cloud</li></ul></div>
+    <div><h3>Negócios e métodos</h3><ul class="chips"><li>Pesquisa de mercado</li><li>Pesquisa com usuários</li><li>Kaizen</li><li>Scrum e Kanban</li><li>Salesforce e HubSpot</li><li>Comunicação com diretoria</li></ul></div>
+  </div>
+</section>
+
+<section id="formacao" aria-labelledby="h-form">
+  <h2 id="h-form">Formação e idiomas</h2>
+  <p><strong>Ciência de Dados e Inteligência Artificial</strong>, PUC-SP (Pontifícia Universidade Católica de São Paulo). Graduação concluída, 2023 – 2026.</p>
+  <p>Inglês intermediário · Espanhol básico</p>
+</section>
+
+<footer>Rebecca Campos · rebeccamachadocampos@gmail.com · São Paulo, SP</footer>
+</div>
+</body>
+</html>
